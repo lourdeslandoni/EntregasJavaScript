@@ -56,14 +56,14 @@ function buscarProductosComerciales()
 {
     let marca = prompt("Ingresa la marca comercial del producto que quieras buscar");
     let encontrados = productosComerciales.find((productoComercial)=>productoComercial.marcaComercial.toLowerCase().indexOf(marca.toLocaleLowerCase())!==-1);
-    console.log("PRODUCTOS ENCONTRADOS POR MARCA COMERCIAL", encontrados);
+    console.log("RESULTADO DE BUSQUEDA PARA MARCAS COMERCIALES", encontrados);
 }
 
 function filtrarProductosPorIngrediente()
 {
     let ingrediente = prompt("Ingresa el ingrediente por el cual quiere filtrar los productos");
     let ingredientesEncontrados = productosComerciales.filter((productoComercial)=>productoComercial.ingredientesDeclarados.toLowerCase().indexOf(ingrediente.toLocaleLowerCase())!==-1);
-    console.log("PRODUCTOS ENCONTRADOS POR MARCA COMERCIAL", ingredientesEncontrados);
+    console.log("LISTADO DE PRODUCTOS COMERCIALES FILTRADOS POR INGREDIENTE", ingredientesEncontrados);
 }
 
 //Construccion de clases
@@ -115,7 +115,7 @@ ingredientes.push(new Ingrediente("Proteina de Arveja (85%)", 377, 7.8, 78.2, 3,
 ingredientes.push(new Ingrediente("Sal", 0, 0, 0, 0, 0, 0, 0, 24, 38800));
 
 // PROGRAMA PRINCIPAL
-alert ("Bienvenid@ a la calculadora de sellos y advertencias nutricionales")
+alert ("Bienvenid@ a la calculadora de sellos y advertencias nutricionales y simulador de desarrollo de alimentos")
 
 let nombreUsuario = prompt("Ingrese su nombre");
 
@@ -126,7 +126,9 @@ let edadUsuario = Number(prompt("Ingrese su edad"));
 if(edadUsuario<18) {
     alert("ACCESO DENEGADO");
     } else {
-        let opcionSitio = Number(prompt(`Indique el sello o advertencia nutricional sobre el cual desea realizar la consulta (Ingrese el numero de la opcion deseada): 
+        let opcionSitio = Number(prompt
+            (`Calculadora de sellos: indique el sello o advertencia nutricional sobre el cual desea realizar la consulta (Opciones 1 a 6) - 
+            Simulador de desarrollo: ingrese el numero de la opcion deseada (Opciones 7 a 9): 
                                 1. Azucares Anadidos
                                 2. Grasas Totales
                                 3. Grasas Saturadas
