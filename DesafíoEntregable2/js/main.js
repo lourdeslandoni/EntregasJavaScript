@@ -6,13 +6,13 @@ const ingredientes = [];
 
 const boton1 = document.getElementById("botonListado");
 boton1.addEventListener("click", ()=>{
-  mostrarProductosComerciales();
+  mostrarProductosComerciales(productosComerciales);
 });
 
 const boton2 = document.getElementById("botonIngredientes");
 boton2.addEventListener("click", ()=>{
-  let filtrados = filtrarPorIngrediente();
-  mostrarProductosComerciales(filtrados);
+    let filtrados = filtrarPorIngrediente(productosComerciales);
+    mostrarProductosComerciales(filtrados);
 });
 
 const boton3 = document.getElementById("botonFormula");
@@ -97,7 +97,7 @@ function mostrarProductosComerciales(listaProductos)
 
   productos.appendChild(encabezado);
 
-  productosComerciales.forEach((productoComercial)=>{
+  listaProductos.forEach((productoComercial)=>{
       const nodotr = document.createElement("tr");
       let nodotd = document.createElement("td");
 
@@ -119,44 +119,60 @@ function mostrarProductosComerciales(listaProductos)
       productos.appendChild(nodotr);
  });
 
- document.body.appendChild(productos);
+ let contenedor = document.getElementById("main")
+ contenedor.appendChild(productos)
+
+//  document.body.appendChild(productos);
 }
 
-function filtrarPorIngrediente()
+function filtrarPorIngrediente(todosLosProductos)
 {  
     let ingrediente = prompt("Ingresa el igrediente por el cual deseas filtrar los productos comerciales");
-    let encontrados = productosComerciales.filter((productoComercial)=>productoComercial.ingredientesDeclarados.toLowerCase().indexOf(ingrediente.toLocaleLowerCase())!==-1);
-   console.log(encontrados);
+    let encontrados = todosLosProductos.filter((productoComercial)=>productoComercial.ingredientesDeclarados.toLowerCase().indexOf(ingrediente.toLocaleLowerCase())!==-1);
+    return encontrados;
 }
 
 function formulacionPrototipo()
 {
-    const subtituloH2 = document.createElement("h2");
-    subtituloH2.innerHTML = "Teniendo en cuenta los ingredientes cargados en el sistema, introduzca la formulación teórica de su alimento:";
-    document.body.appendChild(subtituloH2);
+    let exist = document.getElementById("subtituloH2")
+    console.log(exist)
 
-       let formulacion = document.querySelector("#formulaTeorica");
-    if(!formulacion)
-    {
+    if (!exist) {
+        const subtituloH2 = document.createElement("h2");
+        subtituloH2.setAttribute("id", "subtituloH2");
+        subtituloH2.innerHTML = "Teniendo en cuenta los ingredientes cargados en el sistema, introduzca la formulación teórica de su alimento:";
+        document.body.appendChild(subtituloH2);
+    }
 
-const newLabel = document.createElement("label");
-newLabel.innerHTML = "Ingrediente";
+    
 
-const newCheckbox = document.createElement("input");
-newCheckbox.setAttribute("type", 'text');
+    let formulacion = document.querySelector("#formulaTeorica");
 
-var selectList = document.createElement("select");
-selectList.setAttribute("id", "mySelect");
-for (var i = 0; i < ingredientes.length; i++) {
-  var option = document.createElement("option");
-  option.setAttribute("value", ingredientes[i]);
-  option.text = ingredientes[i];
-  selectList.appendChild(option);
-}
+    if(!formulacion) {
+        const newLabel = document.createElement("label");
+        newLabel.innerHTML = "Ingrediente";
 
-document.body.appendChild(newLabel);
-document.body.appendChild(newCheckbox);
-document.body.appendChild(selectList);
+        const newCheckbox = document.createElement("input");
+        newCheckbox.setAttribute("type", 'text');
+
+        var selectList = document.createElement("select");
+        selectList.setAttribute("id", "mySelect");
+        for (var i = 0; i < ingredientes.length; i++) {
+        var option = document.createElement("option");
+        option.setAttribute("value", ingredientes[i].nombre);
+        option.text = ingredientes[i].nombre;
+        selectList.appendChild(option);
+    }
+
+    let contenedor = document.getElementById("main")
+    contenedor.appendChild(newLabel)
+    contenedor.appendChild(newCheckbox)
+    contenedor.appendChild(selectList)
+    contenedor.appendChild(formulaTeorica)
+
+    // document.body.appendChild(newLabel);
+    // document.body.appendChild(newCheckbox);
+    // document.body.appendChild(selectList);
     }
     formulacion.innerHTML="";
 
@@ -171,7 +187,7 @@ document.body.appendChild(selectList);
                           `;
         listaProductos.appendChild(nodoLI);
    }); */
-   document.body.appendChild(formulaTeorica);
+//    document.body.appendChild(formulaTeorica);
 }
 
 
