@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="js/calculadoraSellos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+  <header id="header">
+    <img
+      src="img/bannerEtiquetadoFrontal.png"
+      class="headerIMG"
+      alt="banner con sellos nutricionales"
+    />
+    <a href="index.html"
+      ><img src="img/logoINTI.png" class="logoINTI" alt="logo de INTI"
+    /></a>
+    <img
+      src="img/plantBased.png"
+      class="headerIMG"
+      alt="imagen representativa de alternativas lácteas"
+    />
+  </header>
+
+<div class="contenedor" id="main">
+  <h1>
+    Calculadora de Sellos 
+  </h1>
+  <span class="calculadoraSellos">
+    <p>Para conocer si su producto contiene algún sello, ingrese a continuación el contenido de nutriente crítico cada 100 g</p>
+      <div>
+        <label for="inputName">Calorías</label>
+        <input type="text" id="kcalTotales" placeholder="kcal">
+      </div>
+      <div>
+        <label for="inputName">Azúcares Añadidos</label>
+        <input type="text" id="inputAzucares" placeholder="g">
+      </div>
+
+      <div>
+        <label for="inputName">Grasas Totales</label>
+        <input type="text" id="inputGrasasTot" placeholder="g">
+      </div>
+
+      <div>
+        <label for="inputName">Grasas Saturadas</label>
+        <input type="text" id="inputGrasasSat" placeholder="g">
+      </div>
+
+      <div>
+        <label for="inputName">Sodio</label>
+        <input type="text" id="inputSodio" placeholder="mg">
+      </div>
+      <div id="radioButton" class="radioButton">
+            <legend>Contiene su producto Edulcorante y/o Cafeína?</legend>
+            <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios1"
+                  value="option1"
+                  checked
+                />
+                <label class="form-check-label" for="gridRadios1">
+                 Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="gridRadios2">
+                 No
+                </label>
+              </div>
+        </div>
+        <button class="sellosButton" id="botonSellos">Calcular Sellos</button>
+  </span>
+  <a href="index.html">
+    <button>Volver al Menú Principal</button>
+    </a>
+</div>
+  </body>
+</html>
