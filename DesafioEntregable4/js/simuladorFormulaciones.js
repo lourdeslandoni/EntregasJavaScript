@@ -65,7 +65,7 @@ const contenedor = document.querySelector('.contenedor');
     
     let inputIngrediente = document.getElementById("myInput").value
 
-    fetch("https://api.spoonacular.com/food/ingredients/search?apiKey=e58802fd9f744e2cb8df44e72dc5c148&query="+inputIngrediente+"&number=2&sort=calories&sortDirection=desc\n", requestOptions)
+    fetch("https://api.spoonacular.com/food/ingredients/search?apiKey=e58802fd9f744e2cb8df44e72dc5c148&query="+inputIngrediente+"&number=10&sort=calories&sortDirection=desc\n", requestOptions)
     .then(response => response.json())
     .then(data => mostrarDatosAPI(data))
     .catch(error => console.log('error', error));
@@ -86,7 +86,7 @@ function mostrarDatosAPI(elemento) {
        contenedor.appendChild(divPost)
     })
 
-    console.log(pepito.results);
+    console.log(elemento.results);
  }
   
 
